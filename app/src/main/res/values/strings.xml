@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">IUDigital</string>
+    <string name="name">Nombre</string>
+    <string name="lastName">Apellido</string>
+    <string name="email">Email</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Registrarse</string>
+</resources>
