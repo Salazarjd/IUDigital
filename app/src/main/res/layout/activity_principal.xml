@@ -7,7 +7,20 @@
     tools:context=".PrincipalActivity">
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/txtDocument"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Documento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/txtName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -16,11 +29,11 @@
         android:hint="@string/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/txtDocument"
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextLastName"
+        android:id="@+id/txtLastName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -29,11 +42,11 @@
         android:hint="@string/lastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/editTextName"
+        app:layout_constraintTop_toTopOf="@id/txtName"
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/txtEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -42,11 +55,11 @@
         android:hint="@string/email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/editTextLastName"
+        app:layout_constraintTop_toTopOf="@id/txtLastName"
         android:autofillHints="" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/txtPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -57,17 +70,17 @@
         tools:layout_editor_absoluteY="307dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/editTextEmail"
+        app:layout_constraintTop_toTopOf="@id/txtEmail"
         android:autofillHints="" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:text="@string/register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword"
         android:background="@drawable/button_rounded"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
