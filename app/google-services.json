@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "341985083273",
+    "project_id": "appmovil-bc739",
+    "storage_bucket": "appmovil-bc739.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341985083273:android:7af1fc8d4f67642b1a6b58",
+        "android_client_info": {
+          "package_name": "co.com.iudigital"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "341985083273-opn7nt67fhatrv2iqu74firhsq03ctjd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEku4_UJPOKtqRBId9QU5SglIrRmd8GBU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "341985083273-opn7nt67fhatrv2iqu74firhsq03ctjd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
