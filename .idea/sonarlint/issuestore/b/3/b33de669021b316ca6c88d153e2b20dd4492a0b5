@@ -1,0 +1,26 @@
+
+J
+java:S1604G"(Make this anonymous inner class a lambda(ë‡½Ÿûÿÿÿÿ8·ŸŸØñ0
+y
+java:S1450"WRemove the "document" field and declare it as a local variable in the relevant methods.(•İñ¯ÿÿÿÿÿ8Éª™Øñ0
+p
+java:S1450"TRemove the "email" field and declare it as a local variable in the relevant methods.(‰Ë§8Êª™Øñ0
+s
+java:S1450"WRemove the "lastName" field and declare it as a local variable in the relevant methods.(±À¿J8Ëª™Øñ0
+u
+java:S1450"SRemove the "name" field and declare it as a local variable in the relevant methods.(Å÷˜ùÿÿÿÿ8Ìª™Øñ0
+t
+java:S1450"WRemove the "password" field and declare it as a local variable in the relevant methods.(Şœº8Îª™Øñ0
+X	java:S125$"<This block of commented-out lines of code should be removed.(õâÑö8ìª™Øñ0
+£
+java:S1186J"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğ¸™áúÿÿÿÿ8Î ŸØñ0
+N
+java:S1068",Remove this unused "document" private field.(•İñ¯ÿÿÿÿÿ8òª™Øñ0
+J
+java:S1068"(Remove this unused "name" private field.(Å÷˜ùÿÿÿÿ8óª™Øñ0
+H
+java:S1068",Remove this unused "lastName" private field.(±À¿J8óª™Øñ0
+E
+java:S1068")Remove this unused "email" private field.(‰Ë§8ôª™Øñ0
+I
+java:S1068",Remove this unused "password" private field.(Şœº8ôª™Øñ0
