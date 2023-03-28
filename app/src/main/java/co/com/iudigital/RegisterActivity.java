@@ -52,7 +52,16 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for(DataSnapshot userDb : snapshot.getChildren()){
                             if(userDb.child("email").getValue().toString().equals(em) && userDb.child("password").getValue().toString().equals(pass)){
-                                Toast.makeText(RegisterActivity.this, "Usuario Logueado", Toast.LENGTH_SHORT).show();
+                                String document = userDb.child("document").toString();
+                                String name = userDb.child("name").toString();
+                                String lastName = userDb.child("lastName").toString();
+                                String email = userDb.child("email").toString();
+                                String password = userDb.child("password").toString();
+                                User user = new User(document, name, lastName, email, password);
+                                Intent intent = new Intent(RegisterActivity.this, MenuActivity.class);
+                                intent.putExtra("user", user);
+                                startActivity(intent);
+//                                Toast.makeText(RegisterActivity.this, "Usuario Logueado", Toast.LENGTH_SHORT).show();
                                 return;
                             }
                             Toast.makeText(RegisterActivity.this, "Usuario y/o contraseña incorrectosº", Toast.LENGTH_SHORT).show();
