@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ public class PrincipalActivity extends AppCompatActivity {
     private EditText password;
 
     private Button btnRegister;
+    private Button btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +43,19 @@ public class PrincipalActivity extends AppCompatActivity {
         email = findViewById(R.id.txtEmail);
         password = findViewById(R.id.txtPassword);
         btnRegister = findViewById(R.id.btnRegister);
+        btnBack = findViewById(R.id.btnBack);
 
         registerUser();
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PrincipalActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
 //        register.setOnClickListener(new View.OnClickListener() {
 //

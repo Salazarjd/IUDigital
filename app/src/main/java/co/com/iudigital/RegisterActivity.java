@@ -30,8 +30,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         register = findViewById(R.id.register);
         login = findViewById(R.id.login);
-        email.findViewById(R.id.email);
-        password.findViewById(R.id.password);
+        email = findViewById(R.id.email);
+        password = findViewById(R.id.password);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 Toast.makeText(RegisterActivity.this, "Usuario Logueado", Toast.LENGTH_SHORT).show();
                                 return;
                             }
+                            Toast.makeText(RegisterActivity.this, "Usuario y/o contraseña incorrectosº", Toast.LENGTH_SHORT).show();
 
                         }
                     }
