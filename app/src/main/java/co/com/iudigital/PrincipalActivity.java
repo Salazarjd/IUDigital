@@ -3,10 +3,13 @@ package co.com.iudigital;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -98,10 +101,26 @@ public class PrincipalActivity extends AppCompatActivity {
                 dbref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        for(DataSnapshot userDb : snapshot.getChildren()){
+                            if(userDb.child("document").getValue().toString().equals(id)){
+                                document.setError("El documento ya ha sido registrado");
+                                document.requestFocus();
+                                return;
+                            }
+                            if(userDb.child("email").getValue().toString().equals(em)){
+                                email.setError("El correo ya ha sido registrado");
+                                email.requestFocus();
+                                return;
+                            }
+                        }
+
                         User user = new User(id, nam, la, em, pw);
                         dbref.push().setValue(user);
-                        Toast.makeText(PrincipalActivity.this, "Usuario Registrado", Toast.LENGTH_SHORT).show();
                         resetValues();
+
+                        Toast.makeText(PrincipalActivity.this, "Usuario Registrado", Toast.LENGTH_SHORT).show();
+
                     }
 
                     @Override
@@ -114,30 +133,34 @@ public class PrincipalActivity extends AppCompatActivity {
     }
 
     public boolean verifyInputs() {
-        boolean result = false;
 
         if(document.getText().toString().isEmpty()){
             document.setError("Campo obligatorio");
-            result = true;
+            document.requestFocus();
+            return true;
         }
         if(name.getText().toString().isEmpty()){
             name.setError("Campo obligatorio");
-            result = true;
+            name.requestFocus();
+            return true;
         }
         if(lastName.getText().toString().isEmpty()){
             lastName.setError("Campo obligatorio");
-            result = true;
+            lastName.requestFocus();
+            return true;
         }
         if(email.getText().toString().isEmpty()){
             email.setError("Campo obligatorio");
-            result = true;
+            email.requestFocus();
+            return true;
         }
         if(password.getText().toString().isEmpty()){
             password.setError("Campo obligatorio");
-            result = true;
+            password.requestFocus();
+            return true;
         }
 
-        return result;
+        return false;
     }
 
     public void resetValues() {
@@ -147,4 +170,5 @@ public class PrincipalActivity extends AppCompatActivity {
         email.setText("");
         password.setText("");
     }
+
 }
