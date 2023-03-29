@@ -2,7 +2,7 @@ package co.com.iudigital;
 
 import java.io.Serializable;
 
-public class User implements Serializable {
+public class User implements Serializable{
 
     private String document;
     private String name;

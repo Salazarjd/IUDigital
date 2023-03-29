@@ -52,12 +52,12 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         for(DataSnapshot userDb : snapshot.getChildren()){
                             if(userDb.child("email").getValue().toString().equals(em) && userDb.child("password").getValue().toString().equals(pass)){
-                                String document = userDb.child("document").toString();
-                                String name = userDb.child("name").toString();
-                                String lastName = userDb.child("lastName").toString();
-                                String email = userDb.child("email").toString();
-                                String password = userDb.child("password").toString();
-                                User user = new User(document, name, lastName, email, password);
+                                String doc = userDb.child("document").getValue().toString();
+                                String nam = userDb.child("name").getValue().toString();
+                                String lastNam = userDb.child("lastName").getValue().toString();
+                                String em = userDb.child("email").getValue().toString();
+                                String pass = userDb.child("password").getValue().toString();
+                                User user = new User(doc, nam, lastNam, em, pass);
                                 Intent intent = new Intent(RegisterActivity.this, MenuActivity.class);
                                 intent.putExtra("user", user);
                                 startActivity(intent);
