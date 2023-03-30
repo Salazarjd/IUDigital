@@ -57,38 +57,6 @@ public class PrincipalActivity extends AppCompatActivity {
             }
         });
 
-//        register.setOnClickListener(new View.OnClickListener() {
-//
-//            AdminSQLite admin = new AdminSQLite(getApplicationContext(), "Biblioteca", null, 1);
-//            SQLiteDatabase db = admin.getWritableDatabase();
-//
-//            @Override
-//            public void onClick(View v) {
-//                Integer doc = Integer.parseInt(document.getText().toString());
-//                String na = name.getText().toString();
-//                String la = lastName.getText().toString();
-//                String em = email.getText().toString();
-//                String pw = password.getText().toString();
-//
-//                ContentValues data = new ContentValues();
-//                data.put("document", doc);
-//                data.put("name", na);
-//                data.put("lastName", la);
-//                data.put("email", em);
-//                data.put("password", pw);
-//
-//                db.insert("user", null, data);
-//                db.close();
-//
-//                document.setText("");
-//                name.setText("");
-//                lastName.setText("");
-//                email.setText("");
-//                password.setText("");
-//            }
-//        });
-
-
     }
 
     public void registerUser(){
@@ -131,6 +99,8 @@ public class PrincipalActivity extends AppCompatActivity {
                         User user = new User(id, nam, la, em, pw);
                         dbref.push().setValue(user);
                         resetValues();
+                        Intent intent = new Intent(PrincipalActivity.this, RegisterActivity.class);
+                        startActivity(intent);
 
                         Toast.makeText(PrincipalActivity.this, "Usuario Registrado", Toast.LENGTH_SHORT).show();
 

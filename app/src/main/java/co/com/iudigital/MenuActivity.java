@@ -54,6 +54,8 @@ public class MenuActivity extends AppCompatActivity {
         password.setText(user.getPassword());
 
         updateUser();
+        deleteUser();
+        backMenu();
     }
 
     public void updateUser(){
@@ -80,8 +82,13 @@ public class MenuActivity extends AppCompatActivity {
                 dbref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        User user = new User(id, nam, la, em, pw);
-                        dbref.push().setValue(user);
+                        for(DataSnapshot userDb: snapshot.getChildren()){
+                            if(userDb.child("document").getValue().toString().equalsIgnoreCase(id)){
+                                userDb.getRef().child("name").setValue(nam);
+                                userDb.getRef().child("lastName").setValue(la);
+                                userDb.getRef().child("password").setValue(pw);
+                            }
+                        }
 
                         Intent intent = new Intent(MenuActivity.this, RegisterActivity.class);
                         startActivity(intent);
@@ -129,5 +136,51 @@ public class MenuActivity extends AppCompatActivity {
         }
 
         return false;
+    }
+
+    public void backMenu(){
+        btnBack.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this, RegisterActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    public void deleteUser(){
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String doc = document.getText().toString();
+                FirebaseDatabase db = FirebaseDatabase.getInstance();
+                DatabaseReference dbref = db.getReference(User.class.getSimpleName());
+
+                dbref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        for(DataSnapshot userDb: snapshot.getChildren()){
+                            if(userDb.child("document").getValue().toString().equalsIgnoreCase(doc)){
+                                userDb.getRef().removeValue();
+                            }
+                        }
+
+                        Intent intent = new Intent(MenuActivity.this, RegisterActivity.class);
+                        startActivity(intent);
+
+                        Toast.makeText(MenuActivity.this, "Usuario actualizado", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+        });
     }
 }
